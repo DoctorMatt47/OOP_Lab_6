@@ -1,0 +1,19 @@
+body {
+  background-color: #60ffaf;
+}
+
+.title {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.main {
+  border-radius: 25px;
+  background-color: white;
+}
+
+.footer {
+  height: 150px;
+}
+
+/*# sourceMappingURL=styles.css.map */
