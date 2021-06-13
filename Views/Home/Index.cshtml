@@ -1,4 +1,8 @@
-﻿<table class="table">
+﻿@using OOP_Lab_6.Models
+@using OOP_Lab_6.Domain.Mappers
+@model List<ChampionStats>
+
+<table class="table">
     <thead>
         <tr>
             <th>Image</th>
@@ -9,19 +13,23 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td scope="row">gaeg</td>
-            <td>geag</td>
-            <td>geag</td>
-            <td>geag</td>
-            <td>geag</td>
-        </tr>
-        <tr>
-            <td scope="row">geag</td>
-            <td>geag</td>
-            <td>geag</td>
-            <td>geag</td>
-            <td>geag</td>
-        </tr>
+       @foreach(var stats in Model)
+        {
+           var imageName = ChampionNameMapper.GetImageName(stats.Name);
+           var imageChampion = "https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/" +
+                imageName + ".png";
+           var pickRate = Math.Round(stats.PickRate * 100, 3).ToString() + '%';
+           var winRate = Math.Round(stats.WinRate * 100, 3).ToString() + '%';
+           var banRate = Math.Round(stats.BanRate * 100, 3).ToString() + '%';
+            <tr>
+                <td scope="row">
+                    <img src="@imageChampion" alt="@imageName" width="60" height="60" />
+                </td>
+                <td>@stats.Name</td>
+                <td>@pickRate</td>
+                <td>@winRate</td>
+                <td>@banRate</td>
+            </tr>
+        }
     </tbody>
 </table>
