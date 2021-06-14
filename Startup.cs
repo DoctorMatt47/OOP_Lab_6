@@ -1,15 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OOP_Lab_6.Services.Downloaders;
 using OOP_Lab_6.Services.Parsers;
-using OOP_Lab_6.Services.StatsParser;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OOP_Lab_6
 {
@@ -20,8 +14,9 @@ namespace OOP_Lab_6
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IHtmlDownloader, HtmlDownloader>();
-            //services.AddTransient<IStatsParser, LeagueOfGraphsStatsParser>();
+            services.AddTransient<IStatsParser, LeagueOfGraphsStatsParser>();
             services.AddTransient<IStatsParser, ChampionGgStatsParser>();
+            services.AddTransient<IStatsParser, MetasrcStatsParser>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
