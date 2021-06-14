@@ -8,7 +8,7 @@ using OOP_Lab_6.Domain.Extensions;
 using OOP_Lab_6.Services.Downloaders;
 using System.Threading.Tasks;
 
-namespace OOP_Lab_6.Services.StatsParser
+namespace OOP_Lab_6.Services.Parsers
 {
     public class LeagueOfGraphsStatsParser : IStatsParser
     {
