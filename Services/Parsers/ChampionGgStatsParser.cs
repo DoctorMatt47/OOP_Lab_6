@@ -2,7 +2,6 @@
 using OOP_Lab_6.Domain.Extensions;
 using OOP_Lab_6.Models;
 using OOP_Lab_6.Services.Downloaders;
-using OOP_Lab_6.Services.StatsParser;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
