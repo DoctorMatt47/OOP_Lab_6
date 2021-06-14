@@ -1,6 +1,6 @@
 ﻿@using OOP_Lab_6.Models
 @using OOP_Lab_6.Domain.Mappers
-@model List<ChampionStats>
+@model dynamic
 
 <table class="table">
     <thead>
@@ -13,7 +13,8 @@
         </tr>
     </thead>
     <tbody>
-       @foreach(var stats in Model)
+        <div class="display-5 text-center mb-4">Loading Time: @Model.Time</div>
+       @foreach(var stats in Model.Table)
         {
            var imageName = ChampionNameMapper.GetImageName(stats.Name);
            var imageChampion = "https://ddragon.leagueoflegends.com/cdn/11.12.1/img/champion/" +
