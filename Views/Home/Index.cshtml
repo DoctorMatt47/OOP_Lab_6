@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <div class="display-5 text-center mb-4">Loading Time: @Model.Time</div>
+        <div class="h5 text-center mb-4">Loading Time: @Model.Time</div>
        @foreach(var stats in Model.Table)
         {
            var imageName = ChampionNameMapper.GetImageName(stats.Name);
