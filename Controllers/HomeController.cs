@@ -3,7 +3,6 @@ using OOP_Lab_6.Domain.Mappers;
 using OOP_Lab_6.Models;
 using OOP_Lab_6.Services.Parsers;
 using System;
-using System.Collections;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +11,24 @@ using System.Dynamic;
 
 namespace OOP_Lab_6.Controllers
 {
+    /// <summary>
+    /// Represents contoller for "/home" address.
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly IEnumerable<IStatsParser> _parsers;
 
+        /// <summary>
+        /// Constructs instance of this class.
+        /// </summary>
+        /// <param name="parsers">Champion stats parsers.</param>
         public HomeController(IEnumerable<IStatsParser> parsers) => _parsers = parsers;
 
+        /// <summary>
+        /// Merges lists of champion stats to one list.
+        /// </summary>
+        /// <param name="tables">Lists of champion stats.</param>
+        /// <returns>Merged list with champion stats.</returns>
         private static IEnumerable<ChampionStats> MergeTables(IEnumerable<IEnumerable<ChampionStats>> tables)
         {
             var lists = tables as List<List<ChampionStats>>;
@@ -51,6 +62,11 @@ namespace OOP_Lab_6.Controllers
             return newTable;
         }
 
+        /// <summary>
+        /// Runs parallel methods of parsers.
+        /// Passes parsed champion list to the view.
+        /// </summary>
+        /// <returns>View for "Home/StatsParallel" address</returns>
         [Route("Home/StatsParallel")]
         public IActionResult StatsParallel()
         {
@@ -69,6 +85,12 @@ namespace OOP_Lab_6.Controllers
             return View("Index", model);
         }
 
+
+        /// <summary>
+        /// Runs async methods of parsers.
+        /// Passes parsed champion list to the view.
+        /// </summary>
+        /// <returns>View for "Home/StatsParallel" address</returns>
         [Route("Home/StatsAsync")]
         public async Task<IActionResult> StatsAsync()
         {
@@ -86,6 +108,12 @@ namespace OOP_Lab_6.Controllers
             return View("Index", model);
         }
 
+
+        /// <summary>
+        /// Runs sync methods of parsers.
+        /// Passes parsed champion list to the view.
+        /// </summary>
+        /// <returns>View for "Home/StatsParallel" address</returns>
         [Route("Home/Stats")]
         public IActionResult Stats()
         {

@@ -2,8 +2,17 @@
 
 namespace OOP_Lab_6.Domain.Mappers
 {
+    /// <summary>
+    /// Represents method for name map for the champions.
+    /// </summary>
     public static class ChampionNameMapper
     {
+        /// <summary>
+        /// Gets name of the image of champion.
+        /// Transfers champion name to the champion image name.
+        /// </summary>
+        /// <param name="name">Champion name to be transfered</param>
+        /// <returns></returns>
         public static string GetImageName(string name)
         {
             if (name == "Wukong")

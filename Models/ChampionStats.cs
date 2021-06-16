@@ -1,5 +1,8 @@
 ﻿namespace OOP_Lab_6.Models
 {
+    /// <summary>
+    /// Represents stats of the champion.
+    /// </summary>
     public class ChampionStats
     {
         public string Name { get; set; }

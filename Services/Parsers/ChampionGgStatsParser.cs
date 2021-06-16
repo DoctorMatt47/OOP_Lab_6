@@ -10,12 +10,23 @@ using System.Threading.Tasks;
 
 namespace OOP_Lab_6.Services.Parsers
 {
+    /// <summary>
+    /// Represents html page parser for champion.gg website.
+    /// </summary>
     public class ChampionGgStatsParser : IStatsParser
     {
         private readonly IHtmlDownloader _downloader;
 
+        /// <summary>
+        /// Constructs class instance.
+        /// </summary>
+        /// <param name="downloader">Instance that downloads html page</param>
         public ChampionGgStatsParser(IHtmlDownloader downloader) => _downloader = downloader;
 
+        /// <summary>
+        /// Parses html page and returns enumerable of champion stats.
+        /// </summary>
+        /// <returns>Task that returns enumerable of champion stats.</returns>
         public async Task<IEnumerable<ChampionStats>> GetChampionStatsAsync()
         {
             var doc = new HtmlDocument();
